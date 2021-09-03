@@ -1,5 +1,6 @@
 import { VFC, useState } from "react"
 import { Todo as TodoType } from "../lib/todo"
+import NewTodo from "./NewTodo"
 
 const Todo: VFC = () => {
 	const [todoList, setTodoList] = useState<TodoType[]>([])
@@ -40,6 +41,7 @@ const Todo: VFC = () => {
 	return (
 		<div>
 			<h2>ToDoアプリ</h2>
+			<NewTodo onAdd={addTodo} />
 		</div>
 	)
 }
