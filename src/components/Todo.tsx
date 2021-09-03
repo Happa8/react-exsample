@@ -1,6 +1,7 @@
 import { VFC, useState } from "react"
 import { Todo as TodoType } from "../lib/todo"
 import NewTodo from "./NewTodo"
+import TodoList from "./TodoList"
 
 const Todo: VFC = () => {
 	const [todoList, setTodoList] = useState<TodoType[]>([])
@@ -42,6 +43,11 @@ const Todo: VFC = () => {
 		<div>
 			<h2>ToDoアプリ</h2>
 			<NewTodo onAdd={addTodo} />
+			<TodoList
+				todoList={todoList}
+				onChangeDone={changeTodoDone}
+				onRemove={removeTodo}
+			/>
 		</div>
 	)
 }
