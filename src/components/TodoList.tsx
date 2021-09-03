@@ -1,5 +1,6 @@
 import { VFC } from "react"
 import { Todo as TodoType } from "lib/todo"
+import TodoListItem from "./TodoListItem"
 
 type Props = {
 	todoList: TodoType[]
@@ -8,7 +9,20 @@ type Props = {
 }
 
 const TodoList: VFC<Props> = (props) => {
-	return <ul>todolist</ul>
+	return (
+		<ul>
+			{props.todoList.map((todo) => {
+				return (
+					<TodoListItem
+						todo={todo}
+						onChangeDone={props.onChangeDone}
+						onRemove={props.onRemove}
+						key={todo.id}
+					/>
+				)
+			})}
+		</ul>
+	)
 }
 
 export default TodoList

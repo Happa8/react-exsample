@@ -19,9 +19,11 @@ const Todo: VFC = () => {
 
 	// ToDoが削除された時
 	const removeTodo = (todoId: TodoType["id"]) => {
+		console.log(todoId)
 		const newTodoList = todoList.filter((todo) => {
 			return todo.id !== todoId
 		})
+		console.log(newTodoList)
 
 		setTodoList(newTodoList)
 	}
